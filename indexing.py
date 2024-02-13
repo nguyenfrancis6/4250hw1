@@ -74,7 +74,13 @@ for document in stemDocs:
 
 # Printing the document-term matrix.
 # --> add your Python code here
+print("Document-Term Matrix:")
+# Print the headers
+header = "\t\t" + "\t".join(terms)
+print(header)
+
+# Print each document and its corresponding tf-idf values
 for i, document in enumerate(documents):
-    print(f"Document {i + 1}: {document}")
-    for term, value in docTermMatrix[i].items():
-        print(f"\t{term}: {value}")
+  row_values = [f"{docTermMatrix[i].get(term, 0):.2f}" for term in terms]
+  row = f"Document {i + 1}:\t" + "\t".join(row_values)
+  print(row)
